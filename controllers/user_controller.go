@@ -138,7 +138,7 @@ func (u *UserController) GetEmployee(c *gin.Context) {
 
 	users := []models.User{}
 
-	errDB := u.DB.Select("name, email, role").Where("role = ?", "Employee").Find(&users).Error
+	errDB := u.DB.Select("id, name, email, role").Where("role = ?", "Employee").Find(&users).Error
 	if errDB != nil {
 		c.JSON(http.StatusInternalServerError, models.Response{
 			StatusCode: http.StatusInternalServerError,
