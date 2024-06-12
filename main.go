@@ -39,7 +39,11 @@ func main() {
 	router.PATCH("/tasks/:id/fix", taskController.FixTask)
 	router.PATCH("/tasks/:id/approve", taskController.ApproveTask)
 	router.GET("/tasks/:id", taskController.FindById)
+	router.GET("/tasks/review/asc", taskController.NeedToBeReview)
+	router.GET("/tasks/progress/:userId", taskController.ProgressTasks)
+	router.GET("/tasks/stat/:userId", taskController.Statistics)
+	router.GET("/tasks/user/:userId/:status", taskController.FindByUserAndStatus)
 
 	// Start server
-	router.Run("192.168.110.216:8080")
+	router.Run("192.168.110.224:8080")
 }
